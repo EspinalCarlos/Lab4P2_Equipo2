@@ -2,9 +2,11 @@
 package lab4p2_equipo2;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 
 public class AereoNormal extends MedioTransporte{
+    static Random ran=new Random();
     private int maxPasajeros;
     private double LongitudTotal;
     private int cantMotores;
@@ -13,12 +15,20 @@ public class AereoNormal extends MedioTransporte{
         super();
     }
 
-    public AereoNormal(int maxPasajeros, double LongitudTotal, int cantMotores, double cantTank, double kmTank) {
-        super(cantTank, kmTank);
+    public AereoNormal(int maxPasajeros, double LongitudTotal, int cantMotores) {
         this.maxPasajeros = maxPasajeros;
         this.LongitudTotal = LongitudTotal;
         this.cantMotores = cantMotores;
     }
+
+    public AereoNormal(int maxPasajeros, double LongitudTotal, int cantMotores, double cantTank, double kmTank, double useTank) {
+        super(cantTank, kmTank, useTank);
+        this.maxPasajeros = maxPasajeros;
+        this.LongitudTotal = LongitudTotal;
+        this.cantMotores = cantMotores;
+    }
+
+    
 
     public int getMaxPasajeros() {
         return maxPasajeros;
@@ -73,14 +83,11 @@ public class AereoNormal extends MedioTransporte{
         return super.toString()+"\nAereoNormal" + "\nmaxPasajeros: " + maxPasajeros + "\nLongitudTotal: " + LongitudTotal + "\nCantidad de Motores: " + cantMotores;
     }
 
-    @Override
-    public void consumo() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+
 
     @Override
-    public void viaje() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void viaje(Planeta planeta) {
+        double consumo=(planeta.getDistance()*0.15)+ran.nextInt(25,100);
     }
     
     

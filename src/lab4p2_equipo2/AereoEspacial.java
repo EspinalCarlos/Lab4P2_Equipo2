@@ -20,6 +20,14 @@ public class AereoEspacial extends MedioTransporte{
         this.tipo = tipo;
     }
 
+    public AereoEspacial(String tipoConbustible, String tipo, double cantTank, double kmTank, double useTank) {
+        super(cantTank, kmTank, useTank);
+        this.tipoConbustible = tipoConbustible;
+        this.tipo = tipo;
+    }
+
+    
+
     
 
     public String getTipoConbustible() {
@@ -41,7 +49,17 @@ public class AereoEspacial extends MedioTransporte{
 
     @Override
     public void viaje(Planeta planeta) {
-        double consumo=((planeta.getDistance()*0.32)+(ran.nextInt(25, 35)+3)*3/2);
+        if(this.cantTank>=this.useTank&& this.primates.isEmpty()){
+            for (Primates primate : primates) {
+                if(primate.getCantcomida()>primate.getComeKM()){
+                    double consumo=((planeta.getDistance()*0.32)+(ran.nextInt(25, 35)+3)*3/2);
+                     primate.setCantcomida()primate.getCantcomida()-primate.getComeKM();
+                }
+            }
+            
+        }else
+            System.out.println("No se puede realizar el viaje");
+            
     }
 
     @Override
