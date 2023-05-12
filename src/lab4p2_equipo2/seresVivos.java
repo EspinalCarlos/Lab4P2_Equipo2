@@ -8,6 +8,11 @@ public class seresVivos {
     protected double altura;
     protected double peso;
 
+    public seresVivos() {
+    }
+
+    
+    
     public seresVivos(String name, String gSanguineo, String genero, double altura, double peso) {
         this.name = name;
         this.gSanguineo = gSanguineo;
