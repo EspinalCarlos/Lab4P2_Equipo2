@@ -53,7 +53,7 @@ public class AereoEspacial extends MedioTransporte{
         if(this.cantTank>=this.useTank&& this.primates.isEmpty()){
             for (Primates primate : primates) {
                 if(primate.getCantcomida()>primate.getComeKM()*planeta.getDistance()){
-                    double consumo=((planeta.getDistance()*0.32)+(ran.nextInt(25, 35)+3)*3/2);
+                    double consumo=((planeta.getDistance()*0.32)+(ran.nextInt(25,35)+3)*3/2);
                     int b = (primate.getComeKM())*((int)planeta.getDistance());
                     int a = primate.getCantcomida()-b;
                      primate.setCantcomida(a);

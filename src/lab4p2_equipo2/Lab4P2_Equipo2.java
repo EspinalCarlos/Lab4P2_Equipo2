@@ -9,7 +9,6 @@ public class Lab4P2_Equipo2 {
     static ArrayList<seresVivos> beings = new ArrayList();
     static ArrayList<MedioTransporte> tp = new ArrayList();
     static ArrayList<Planeta> planetss = new ArrayList();
-    static ArrayList<MedioTransporte> mts = new ArrayList();
     
     static Scanner read = new Scanner(System.in);
     public static void menu1(){
@@ -45,6 +44,17 @@ public class Lab4P2_Equipo2 {
                            2. Planeta
                            3. Medio de Transporte
                            
+                           """);
+        
+    }
+    
+    public static void menuList(){
+        System.out.println("""
+                           ---- Ingrese el tipo de cosa que quiere listar ----
+                           
+                           1. serVivo
+                           2. Planeta
+                           3. Medio de Transporte
                            
                            """);
     }
@@ -164,7 +174,7 @@ public class Lab4P2_Equipo2 {
                             System.out.println("Ingrese la cantidad de motores: ");
                             int cMotores = read.nextInt();
                             
-                            mts.add(new AereoNormal(pascant, longtot, cMotores, porc, kmcant, gallons));
+                            tp.add(new AereoNormal(pascant, longtot, cMotores, porc, kmcant, gallons));
                             
                         }break;
                         case 2:{
@@ -205,7 +215,7 @@ public class Lab4P2_Equipo2 {
                                 fight = "No de pelea";
                             }
                             
-                            mts.add(new AereoEspacial(fuelt, fight, porc, kmcant, gal));
+                            tp.add(new AereoEspacial(fuelt, fight, porc, kmcant, gal));
                             
                         }break;
                     }
@@ -236,17 +246,64 @@ public class Lab4P2_Equipo2 {
                             break;
                         case 3:
                             System.out.println("---- Eliga un indice ----");
-                            for (MedioTransporte mt : mts) {
-                                System.out.println(mts.indexOf(mt));
+                            for (MedioTransporte mt : tp) {
+                                System.out.println(tp.indexOf(mt));
                             }
                             int indDelMT = read.nextInt();
-                            mts.remove(indDelMT);
+                            tp.remove(indDelMT);
                             break;
                     }
                     break; 
                 case 7:
+                    menuList();
+                    int opcList = read.nextInt();
+                    
+                    switch(opcList){
+                        case 1:
+                            for (seresVivos being : beings) {
+                                System.out.println(beings.indexOf(being));
+                            }
+                            System.out.println("Ingrese el indice a listar: ");
+                            int indlist = read.nextInt();
+                            
+                            System.out.println(beings.get(indlist));
+                            break;
+                        case 2:
+                            for (Planeta p : planetss) {
+                                System.out.println(beings.indexOf(p));
+                            }
+                            System.out.println("Ingrese el indice a listar: ");
+                            int indlist2 = read.nextInt();
+                            
+                            System.out.println(planetss.get(indlist2));
+                            break;
+                        case 3:
+                            for (MedioTransporte mts : tp) {
+                                System.out.println(beings.indexOf(mts));
+                            }
+                            System.out.println("Ingrese el indice a listar: ");
+                            int indlist3 = read.nextInt();
+                            
+                            System.out.println(tp.get(indlist3));
+                            break;
+                    }
+                    
                     break; 
                 case 8:
+                    System.out.println("Ingrese el usuario: ");
+                    read.nextLine();
+                    String userver = read.nextLine();
+                    System.out.println("Ingrese la password: ");
+                    String passver = read.nextLine();
+                    
+                    for (seresVivos being : beings) {
+                        if (being instanceof Ingenieros) {
+                            if (((Ingenieros)being).getUsuario().equals(userver) && ((Ingenieros)being).getContrasena().equals(passver)) {
+                                
+                                
+                            }
+                        }
+                    }
                     break;
             }
         }
