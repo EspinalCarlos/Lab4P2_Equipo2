@@ -48,7 +48,7 @@ public abstract class MedioTransporte {
     
     public abstract void consumo();
     
-    
+    public abstract void viaje();
     
     
 }

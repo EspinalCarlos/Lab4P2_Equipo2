@@ -67,7 +67,7 @@ public class Primates extends seresVivos{
 
     @Override
     public String toString() {
-        return "Primates{" + "transporte=" + transporte + ", cantcomida=" + cantcomida + ", comeKM=" + comeKM + ", nacimiento=" + nacimiento + '}';
+        return "Transporte: " + transporte + "\n Cantidad de Comida: " + cantcomida + "\nCuanto come por KM=" + comeKM + "\nLugar de Nacimiento del primate: " + nacimiento + "\n";
     }
     
     
