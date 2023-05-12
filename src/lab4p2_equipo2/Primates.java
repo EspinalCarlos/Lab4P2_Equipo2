@@ -25,7 +25,7 @@ public class Primates extends seresVivos{
         this.nacimiento = nacimiento;
     }
 
-    public Primates(MedioTransporte transporte, int cantcomida, int comeKM, String nacimiento, String name, String gSanguineo, String genero, double altura, double peso) {
+    public Primates(int cantcomida, int comeKM, String nacimiento, String name, String gSanguineo, String genero, double altura, double peso) {
         super(name, gSanguineo, genero, altura, peso);
         this.transporte = transporte;
         this.cantcomida = cantcomida;

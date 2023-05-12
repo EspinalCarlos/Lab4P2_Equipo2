@@ -107,23 +107,24 @@ public class Lab4P2_Equipo2 {
                     double height = read.nextDouble();
                     System.out.println("Ingrese el peso (con decimales): ");
                     double weight = read.nextDouble();
-                    
+                    /*
                     System.out.println("--- ASIGNAR TRANSPORTE ---");
                     for (MedioTransporte t : tp) {
                         System.out.println("Nave #"+tp.indexOf(t));
                     }
-                    int opctrans = read.nextInt();
-                    MedioTransporte mt = tp.get(opctrans);
+*/
+                   
+        
                     System.out.println("Ingrese la cantidad de comida: ");
                     int cComida = read.nextInt();
                     System.out.println("Ingrese cuanto come por km: ");
                     int kmComida = read.nextInt();
                     System.out.println("Ingrese lugar de nacimiento: ");
-                    read.nextLine();
-                    String birthl = read.nextLine();
+                   
+                    String birthl = read.next();
                     
-                    beings.add(new Primates(mt, cComida, kmComida, birthl, nombre, gSan, gender, height, weight));
-                    JOptionPane.showMessageDialog(null, "Primate creado");
+                    beings.add(new Primates(cComida, kmComida, birthl, nombre, gSan, gender, height, weight));
+                    //JOptionPane.showMessageDialog(null, "Primate creado");
                     
                     
                 }break;
@@ -150,6 +151,7 @@ public class Lab4P2_Equipo2 {
                             double gallons = read.nextDouble();
                             boolean prosiga = true;
                             ArrayList<Primates> p = new ArrayList();
+                            int indp = 0;
                             while (prosiga) {
                                 System.out.println("--- LISTA DE PRIMARES ---");
                                 for (seresVivos t : beings) {
@@ -158,8 +160,9 @@ public class Lab4P2_Equipo2 {
                                     }
                                 }
                                 System.out.println("Ingrese el indice del primate a agregar:  ");
-                                int indp = read.nextInt();
+                                indp = read.nextInt();
                                 p.add((Primates)beings.get(indp));
+                                
                                 System.out.println("Desea seguir agregando?[S/N]: ");
                                 char yn = read.next().charAt(0);
                                 if (yn == 'Y' || yn == 'y') {
@@ -173,8 +176,13 @@ public class Lab4P2_Equipo2 {
                             double longtot = read.nextDouble();
                             System.out.println("Ingrese la cantidad de motores: ");
                             int cMotores = read.nextInt();
+                            MedioTransporte aaa = new AereoNormal(pascant, longtot, cMotores, porc, kmcant, gallons);
                             
-                            tp.add(new AereoNormal(pascant, longtot, cMotores, porc, kmcant, gallons));
+                            aaa.getPrimates().get(indp).setTransporte(aaa);
+                            
+                            tp.add(aaa);
+                            
+                            
                             
                         }break;
                         case 2:{
@@ -299,7 +307,19 @@ public class Lab4P2_Equipo2 {
                     for (seresVivos being : beings) {
                         if (being instanceof Ingenieros) {
                             if (((Ingenieros)being).getUsuario().equals(userver) && ((Ingenieros)being).getContrasena().equals(passver)) {
+                                for (MedioTransporte mt : tp) {
+                                    System.out.println(tp.indexOf(mt));
+                                }
+                                System.out.println("Ingrese el indice: ");
+                                int indsim = read.nextInt();
                                 
+                                for (Planeta planets : planetss) {
+                                    System.out.println(planetss.indexOf(planets)+"- "+ planets.getNombre());
+                                }
+                                System.out.println("Ingrese el indice: ");
+                                int indplansim = read.nextInt();
+                                
+                                tp.get(indsim).viaje(planetss.get(indplansim));
                                 
                             }
                         }
