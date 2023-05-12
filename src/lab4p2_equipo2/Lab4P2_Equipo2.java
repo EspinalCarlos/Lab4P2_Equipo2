@@ -9,6 +9,7 @@ public class Lab4P2_Equipo2 {
     static ArrayList<seresVivos> beings = new ArrayList();
     static ArrayList<MedioTransporte> tp = new ArrayList();
     static ArrayList<Planeta> planetss = new ArrayList();
+    static ArrayList<MedioTransporte> mts = new ArrayList();
     
     static Scanner read = new Scanner(System.in);
     public static void menu1(){
@@ -28,7 +29,23 @@ public class Lab4P2_Equipo2 {
     }
     public static void menu2(){
         System.out.println("""
-                           ---- Ingrese el tipo de 
+                           ---- Ingrese el tipo de Transporte ----
+                           
+                           1. Aereo Normal
+                           2. Aerero Especial
+                           
+                           """);
+    }
+    
+    public static void menuDel(){
+        System.out.println("""
+                           ---- Ingrese el tipo de cosa que quiere eliminar ----
+                           
+                           1. serVivo
+                           2. Planeta
+                           3. Medio de Transporte
+                           
+                           
                            """);
     }
     public static void main(String[] args) {
@@ -111,11 +128,121 @@ public class Lab4P2_Equipo2 {
                     
                     break;
                 case 4:
+                    menu2();
+                    int opcmt = read.nextInt();
+                    switch(opcmt){
+                        case 1:{
+                            System.out.println("Ingrese porcentaje del tanque: ");
+                            double porc = read.nextDouble();
+                            System.out.println("Ingrese una cantidad de km que puede recorrer con el tanque lleno :");
+                            double kmcant = read.nextDouble();
+                            System.out.println("Ingrese la cantidad de galones: ");
+                            double gallons = read.nextDouble();
+                            boolean prosiga = true;
+                            ArrayList<Primates> p = new ArrayList();
+                            while (prosiga) {
+                                System.out.println("--- LISTA DE PRIMARES ---");
+                                for (seresVivos t : beings) {
+                                    if (t instanceof Primates) {
+                                        System.out.println(beings.indexOf(t) + "- " + t.getName());
+                                    }
+                                }
+                                System.out.println("Ingrese el indice del primate a agregar:  ");
+                                int indp = read.nextInt();
+                                p.add((Primates)beings.get(indp));
+                                System.out.println("Desea seguir agregando?[S/N]: ");
+                                char yn = read.next().charAt(0);
+                                if (yn == 'Y' || yn == 'y') {
+                                } else{
+                                    prosiga = false;
+                                }
+                            }
+                            System.out.println("Ingrese la cantidad maxima de pasajeros: ");
+                            int pascant = read.nextInt();
+                            System.out.println("Ingrese la longitud total: ");
+                            double longtot = read.nextDouble();
+                            System.out.println("Ingrese la cantidad de motores: ");
+                            int cMotores = read.nextInt();
+                            
+                            mts.add(new AereoNormal(pascant, longtot, cMotores, porc, kmcant, gallons));
+                            
+                        }break;
+                        case 2:{
+                            System.out.println("Ingrese porcentaje del tanque: ");
+                            double porc = read.nextDouble();
+                            System.out.println("Ingrese una cantidad de km que puede recorrer con el tanque lleno :");
+                            double kmcant = read.nextDouble();
+                            System.out.println("Ingrese la cantidad en galones de fuel: ");
+                            double gal = read.nextDouble();
+                            boolean prosiga = true;
+                            ArrayList<Primates> p = new ArrayList();
+                            while (prosiga) {
+                                System.out.println("--- LISTA DE PRIMARES ---");
+                                for (seresVivos t : beings) {
+                                    if (t instanceof Primates) {
+                                        System.out.println(beings.indexOf(t) + "- " + t.getName());
+                                    }
+                                }
+                                System.out.println("Ingrese el indice del primate a agregar:  ");
+                                int indp = read.nextInt();
+                                p.add((Primates)beings.get(indp));
+                                System.out.println("Desea seguir agregando?[S/N]: ");
+                                char yn = read.next().charAt(0);
+                                if (yn == 'Y' || yn == 'y') {
+                                } else{
+                                    prosiga = false;
+                                }
+                            }
+                            System.out.println("Ingrese el tipo de combustible: ");
+                            read.nextLine();
+                            String fuelt = read.nextLine();
+                            System.out.println("Es de combate? [S/N]: ");
+                            char yncombat = read.next().charAt(0);
+                            String fight = "";
+                            if (yncombat == 's' || yncombat == 'S') {
+                                fight = "Pelea";
+                            } else{
+                                fight = "No de pelea";
+                            }
+                            
+                            mts.add(new AereoEspacial(fuelt, fight, porc, kmcant, gal));
+                            
+                        }break;
+                    }
                     
                     break;
                 case 5:
                     break;
                 case 6:
+                    menuDel();
+                    int indDel = read.nextInt();
+                    switch(indDel){
+                        case 1:
+                            System.out.println("---- Eliga un indice ----");
+                            for (seresVivos being : beings) {
+                                System.out.println(beings.indexOf(being)+"- "+being.getName());
+                            }
+                            int indDelBeings = read.nextInt();
+                            beings.remove(indDelBeings);
+                            
+                            break;
+                        case 2:
+                            System.out.println("---- Eliga un indice ----");
+                            for (Planeta p : planetss) {
+                                System.out.println(planetss.indexOf(p)+"- "+p.getNombre());
+                            }
+                            int indDelPl = read.nextInt();
+                            planetss.remove(indDelPl);
+                            break;
+                        case 3:
+                            System.out.println("---- Eliga un indice ----");
+                            for (MedioTransporte mt : mts) {
+                                System.out.println(mts.indexOf(mt));
+                            }
+                            int indDelMT = read.nextInt();
+                            mts.remove(indDelMT);
+                            break;
+                    }
                     break; 
                 case 7:
                     break; 

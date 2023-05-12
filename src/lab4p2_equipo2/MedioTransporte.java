@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public abstract class MedioTransporte {
     protected double cantTank;
-    protected double kmTank;
+    protected double kmTank; 
     protected double useTank;
     protected ArrayList<Primates> primates = new ArrayList();
 
