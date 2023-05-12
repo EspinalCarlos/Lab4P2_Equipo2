@@ -87,6 +87,7 @@ public class AereoNormal extends MedioTransporte{
 
     @Override
     public void viaje(Planeta planeta) {
+        
         double consumo=(planeta.getDistance()*0.15)+ran.nextInt(25,100);
     }
     

@@ -49,12 +49,17 @@ public class AereoEspacial extends MedioTransporte{
 
     @Override
     public void viaje(Planeta planeta) {
+        
         if(this.cantTank>=this.useTank&& this.primates.isEmpty()){
             for (Primates primate : primates) {
-                if(primate.getCantcomida()>primate.getComeKM()){
+                if(primate.getCantcomida()>primate.getComeKM()*planeta.getDistance()){
                     double consumo=((planeta.getDistance()*0.32)+(ran.nextInt(25, 35)+3)*3/2);
-                     primate.setCantcomida()primate.getCantcomida()-primate.getComeKM();
-                }
+                    int b = (primate.getComeKM())*((int)planeta.getDistance());
+                    int a = primate.getCantcomida()-b;
+                     primate.setCantcomida(a);
+                     useTank=useTank-consumo;
+                }else
+                    System.out.println("Algun primate no le ajusta la comida");
             }
             
         }else
