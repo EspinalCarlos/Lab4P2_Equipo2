@@ -69,7 +69,7 @@ public class AereoEspacial extends MedioTransporte{
 
     @Override
     public String toString() {
-        return super.toString()+"AereoEspacial{" + "tipoConbustible=" + tipoConbustible + ", tipo=" + tipo + '}';
+        return super.toString()+"Tipo de Conbustible: " + tipoConbustible + "\nTipo de Aereo Espacial: " + tipo + "\n";
     }
     
     

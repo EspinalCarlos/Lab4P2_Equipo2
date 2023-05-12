@@ -51,7 +51,7 @@ public class Ingenieros extends seresVivos{
 
     @Override
     public String toString() {
-        return "Ingenieros{" + "RRHH=" + RRHH + ", usuario=" + usuario + ", Contrasena=" + Contrasena + '}';
+        return  super.toString()+"RRHH del ingeniero: " + RRHH + "\n Usuario: " + usuario + "\nContrasena: " + Contrasena + "\n";
     }
     
     

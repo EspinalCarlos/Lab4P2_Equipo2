@@ -80,15 +80,28 @@ public class AereoNormal extends MedioTransporte{
 
     @Override
     public String toString() {
-        return super.toString()+"\nAereoNormal" + "\nmaxPasajeros: " + maxPasajeros + "\nLongitudTotal: " + LongitudTotal + "\nCantidad de Motores: " + cantMotores;
+        return super.toString()+"\nCantidad Maxima de Pasajeros: " + maxPasajeros + "\nLongitud Total: " + LongitudTotal + "\nCantidad de Motores: " + cantMotores+"\n";
     }
 
 
 
     @Override
     public void viaje(Planeta planeta) {
+        if(this.cantTank>=this.useTank&& this.primates.isEmpty()){
+            for (Primates primate : primates) {
+                if(primate.getCantcomida()>primate.getComeKM()*planeta.getDistance()){
+                    double consumo=(planeta.getDistance()*0.15)+ran.nextInt(25,100);
+                    int b = (primate.getComeKM())*((int)planeta.getDistance());
+                    int a = primate.getCantcomida()-b;
+                     primate.setCantcomida(a);
+                     useTank=useTank-consumo;
+                }else
+                    System.out.println("Algun primate no le ajusta la comida");
+            }
+            
+        }else
+            System.out.println("No se puede realizar el viaje");
         
-        double consumo=(planeta.getDistance()*0.15)+ran.nextInt(25,100);
     }
     
     
